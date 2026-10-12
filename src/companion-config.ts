@@ -25,6 +25,8 @@ export const DEFAULT_STEP_ID = '0';
 export const PAGE_NAME_MAX = 64;
 export const MAX_PAGES_PER_CREATE = 10;
 export const ENTITY_ID_RE = /^[A-Za-z0-9_-]{1,64}$/;
+// Control ids look like "bank:Oh_9f4jps0pmEIyxY1hiO".
+export const CONTROL_ID_RE = /^[A-Za-z0-9_:-]{1,64}$/;
 export const DEFINITION_ID_RE = /^[A-Za-z0-9_.:-]{1,128}$/;
 export const OPTION_KEY_RE = /^[A-Za-z0-9_.-]{1,64}$/;
 export const MAX_OPTIONS = 20;
@@ -277,7 +279,7 @@ export class CompanionConfigClient {
   ): Promise<string | undefined> {
     requireButtonAuth(auth, loc, 'add entity');
     const result = await this.#trpc.call('mutation', 'controls.entities.add', {
-      controlId: assertPattern(controlId, ENTITY_ID_RE, 'control id'),
+      controlId: assertPattern(controlId, CONTROL_ID_RE, 'control id'),
       entityLocation: where,
       ownerId: null,
       connectionId: assertPattern(connectionId, CONNECTION_ID_RE, 'connection id'),
@@ -307,7 +309,7 @@ export class CompanionConfigClient {
       throw new CompanionError('malformed', 'option value must be plain JSON');
     }
     const result = await this.#trpc.call('mutation', 'controls.entities.setOption', {
-      controlId: assertPattern(controlId, ENTITY_ID_RE, 'control id'),
+      controlId: assertPattern(controlId, CONTROL_ID_RE, 'control id'),
       entityLocation: where,
       entityId: assertPattern(entityId, ENTITY_ID_RE, 'entity id'),
       key: assertPattern(key, OPTION_KEY_RE, 'option key'),
@@ -325,7 +327,7 @@ export class CompanionConfigClient {
   ): Promise<boolean> {
     requireButtonAuth(auth, loc, 'remove entity');
     const result = await this.#trpc.call('mutation', 'controls.entities.remove', {
-      controlId: assertPattern(controlId, ENTITY_ID_RE, 'control id'),
+      controlId: assertPattern(controlId, CONTROL_ID_RE, 'control id'),
       entityLocation: where,
       entityId: assertPattern(entityId, ENTITY_ID_RE, 'entity id'),
     });
