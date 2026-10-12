@@ -80,6 +80,12 @@ describe('authorisation and validation before any call', () => {
     await expect(client.createPages(1, ['x'.repeat(65)], pagesAuth)).rejects.toThrow(/too long/);
     expect(trpc.calls).toHaveLength(0);
   });
+  it('accepts a real Companion control id containing a colon', async () => {
+    const err = await client
+      .addEntity(low, 'bank:Oh_9f4jps0pmEIyxY1hiO', 'feedbacks', 'action', 'c', 'd', auth(low))
+      .catch((e: unknown) => e);
+    expect(String(err)).not.toMatch(/control id/);
+  });
 });
 
 describe('responses are validated', () => {
