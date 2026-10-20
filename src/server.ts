@@ -5,7 +5,7 @@ import { registerReadTools } from './tools/read-tools.js';
 import { registerWriteTools } from './tools/write-tools.js';
 
 export const SERVER_NAME = 'companion-mcp';
-export const SERVER_VERSION = '0.1.0';
+export const SERVER_VERSION = '0.1.1';
 
 export function createServer(ctx: AppContext): McpServer {
   const server = new McpServer({ name: SERVER_NAME, version: SERVER_VERSION });
