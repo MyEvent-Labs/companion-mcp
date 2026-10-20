@@ -34,6 +34,10 @@ else
 fi
 
 cd "$DIR"
+# On Git Bash for Windows, Node needs a Windows style path, not /c/Users/...
+if command -v cygpath >/dev/null 2>&1; then
+  DIR="$(cygpath -m "$DIR")"
+fi
 say "Installing dependencies"
 npm ci --no-fund --no-audit
 say "Building"
