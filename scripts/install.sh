@@ -4,14 +4,14 @@
 # and prints the MCP client config with absolute paths filled in.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/duncanunderwood/companion-mcp/main/scripts/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/MyEvent-Labs/companion-mcp/main/scripts/install.sh | bash
 # Options via environment:
 #   COMPANION_MCP_DIR  install location (default: $HOME/companion-mcp)
-#   COMPANION_MCP_REPO git url (default: https://github.com/duncanunderwood/companion-mcp.git)
+#   COMPANION_MCP_REPO git url (default: https://github.com/MyEvent-Labs/companion-mcp.git)
 #   COMPANION_URL      Companion base url baked into the printed config (default: http://127.0.0.1:8000)
 set -euo pipefail
 
-REPO="${COMPANION_MCP_REPO:-https://github.com/duncanunderwood/companion-mcp.git}"
+REPO="${COMPANION_MCP_REPO:-https://github.com/MyEvent-Labs/companion-mcp.git}"
 DIR="${COMPANION_MCP_DIR:-$HOME/companion-mcp}"
 CURL="${COMPANION_URL:-http://127.0.0.1:8000}"
 

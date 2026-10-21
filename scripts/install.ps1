@@ -3,14 +3,14 @@
 # and prints the MCP client config with absolute paths filled in.
 #
 # Usage (PowerShell):
-#   irm https://raw.githubusercontent.com/duncanunderwood/companion-mcp/main/scripts/install.ps1 | iex
+#   irm https://raw.githubusercontent.com/MyEvent-Labs/companion-mcp/main/scripts/install.ps1 | iex
 # Options via environment:
 #   COMPANION_MCP_DIR  install location (default: $HOME\companion-mcp)
-#   COMPANION_MCP_REPO git url (default: https://github.com/duncanunderwood/companion-mcp.git)
+#   COMPANION_MCP_REPO git url (default: https://github.com/MyEvent-Labs/companion-mcp.git)
 #   COMPANION_URL      Companion base url baked into the printed config (default: http://127.0.0.1:8000)
 $ErrorActionPreference = 'Stop'
 
-$Repo = if ($env:COMPANION_MCP_REPO) { $env:COMPANION_MCP_REPO } else { 'https://github.com/duncanunderwood/companion-mcp.git' }
+$Repo = if ($env:COMPANION_MCP_REPO) { $env:COMPANION_MCP_REPO } else { 'https://github.com/MyEvent-Labs/companion-mcp.git' }
 $Dir = if ($env:COMPANION_MCP_DIR) { $env:COMPANION_MCP_DIR } else { Join-Path $HOME 'companion-mcp' }
 $CompanionUrl = if ($env:COMPANION_URL) { $env:COMPANION_URL } else { 'http://127.0.0.1:8000' }
 

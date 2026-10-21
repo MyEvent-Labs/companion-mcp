@@ -27,13 +27,13 @@ You need Node.js 22 or later, git, and Companion 5.0.7 running on this machine o
 **2. Install.** One line, macOS or Linux:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/duncanunderwood/companion-mcp/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MyEvent-Labs/companion-mcp/main/scripts/install.sh | bash
 ```
 
 Windows PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/duncanunderwood/companion-mcp/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/MyEvent-Labs/companion-mcp/main/scripts/install.ps1 | iex
 ```
 
 The installer clones to `~/companion-mcp`, builds, creates an empty allowlist, checks the server starts, and prints a ready-made client config with your paths filled in. Set `COMPANION_MCP_DIR` first to install elsewhere. Prefer to do it by hand? `git clone`, `npm ci`, `npm run build`.
@@ -47,7 +47,7 @@ The installer clones to `~/companion-mcp`, builds, creates an empty allowlist, c
 If you use an AI assistant with a terminal, you can paste this instead of steps 2 and 4:
 
 ```
-Install companion-mcp from https://github.com/duncanunderwood/companion-mcp using
+Install companion-mcp from https://github.com/MyEvent-Labs/companion-mcp using
 scripts/install.sh (macOS/Linux) or scripts/install.ps1 (Windows), then add the JSON it
 prints to my MCP client config and tell me where you put it. Leave writes disabled.
 ```
